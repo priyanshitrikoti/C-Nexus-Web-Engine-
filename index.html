@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Mini Web Server - C++ Powered</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="hero">
+            <h1>🌐 Mini Web Server</h1>
+            <p>Built with <strong>C++ Socket Programming</strong> | <span id="server-time"></span></p>
+        </header>
+
+        <!-- Server Stats Card -->
+        <div class="card stats-card">
+            <h2>📊 Server Status</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Uptime</span>
+                    <span class="stat-value" id="uptime">0s</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Current Time</span>
+                    <span class="stat-value" id="current-time">-</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Requests</span>
+                    <span class="stat-value" id="request-count">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Status</span>
+                    <span class="stat-value status-online">🟢 LIVE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Time API Card -->
+        <div class="card">
+            <h2>⏰ Real-Time Clock API</h2>
+            <div id="time-display" class="time-display">-</div>
+            <div class="button-group">
+                <button onclick="updateTime()" id="time-btn">🔄 Refresh Time</button>
+                <button onclick="autoUpdateTime(true)">▶️ Auto-Update</button>
+                <button onclick="autoUpdateTime(false)">⏹️ Stop</button>
+            </div>
+        </div>
+
+        <!-- Interactive Form -->
+        <div class="card">
+            <h2>📝 Interactive Form (GET/POST)</h2>
+            <form id="userForm" class="form-group">
+                <div class="input-group">
+                    <input type="text" id="name" name="name" placeholder="👤 Your Name" required>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" name="email" placeholder="📧 Your Email" required>
+                </div>
+                <div class="input-group">
+                    <textarea id="message" name="message" placeholder="💬 Your Message (max 200 chars)" maxlength="200"></textarea>
+                </div>
+                <div class="button-group">
+                    <button type="submit">🚀 Submit (POST)</button>
+                    <button type="button" onclick="submitGet()">📤 Submit (GET)</button>
+                </div>
+            </form>
+            <div id="form-response" class="response-box"></div>
+        </div>
+
+        <!-- API Tester -->
+        <div class="card">
+            <h2>🔧 API Tester</h2>
+            <div class="api-buttons">
+                <button onclick="testApi('/api/time')">⏰ GET /api/time</button>
+                <button onclick="testApi('/api/status', 'POST')">📊 POST /api/status</button>
+                <button onclick="fetchFile('/style.css')">🎨 GET CSS</button>
+            </div>
+            <pre id="api-response" class="api-output">Click any button to test APIs...</pre>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with ❤️ using C++ | Socket Programming | HTTP/1.1</p>
+            <p><strong>Open Developer Tools (F12)</strong> to see network requests!</p>
+        </footer>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

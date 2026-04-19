@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-windows",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17", "-Wall", "-O2", "-static-libgcc", "-static-libstdc++",
+                "src/webserver.cpp", "-lws2_32", "-o", "webserver.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "run-windows",
+            "type": "shell",
+            "command": "./webserver.exe",
+            "group": "test",
+            "isBackground": true,
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            }
+        }
+    ]
+}
